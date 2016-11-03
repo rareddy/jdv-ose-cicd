@@ -1,0 +1,43 @@
+
+        {
+            "kind": "ImageStream",
+            "apiVersion": "v1",
+            "metadata": {
+                "annotations": {
+                    "openshift.io/image.insecureRepository": "true"
+                },
+                "name": "jboss-datavirt63-openshift"
+            },
+            "spec": {
+                "dockerImageRepository": "ce-registry.usersys.redhat.com/jboss-datavirt-6/datavirt63-openshift",
+                "tags": [
+                    {
+                        "name": "1.0",
+                        "annotations": {
+                            "description": "Red Hat JBoss Data Virtualization 6.3 S2I images.",
+                            "iconClass": "icon-jboss",
+                            "tags": "datagrid,java,jboss,xpaas",
+                            "supports":"datavirt:6.3,java:8,xpaas:1.2",
+                            "version": "1.0"
+                        }
+                    },
+                    {
+                        "name": "1.0-driver",
+                        "annotations": {
+                            "description": "Red Hat JBoss Data Virtualization 6.3 S2I images.",
+                            "iconClass": "icon-jboss",
+                            "tags": "datavirt,jdbc,jboss,xpaas",
+                            "supports":"datavirt:6.3,jdbc,xpaas:1.4",
+                            "version": "1.0"
+                        },
+                        "importPolicy": {
+                          "insecure": true
+                        },
+                        "from": {
+                          "kind": "DockerImage",
+                          "name": "ce-registry.usersys.redhat.com/jboss-datavirt-6/datavirt63-driver-openshift:1.0"
+                        }
+                    }
+                ]
+            }
+        }
